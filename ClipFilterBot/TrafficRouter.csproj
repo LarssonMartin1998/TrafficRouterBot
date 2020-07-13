@@ -80,6 +80,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\CommandHandler.cs" />
+    <Compile Include="Core\FileHandler.cs" />
+    <Compile Include="Core\GuildSettingsTracker.cs" />
     <Compile Include="Core\MessageHandler.cs" />
     <Compile Include="Core\TrafficRouterBot.cs" />
     <Compile Include="Helpers\ChannelHelper.cs" />

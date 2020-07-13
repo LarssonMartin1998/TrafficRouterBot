@@ -8,13 +8,14 @@ namespace TrafficRouter
 {
 	class ChannelHelper
 	{
+		// Cannot guarantee that ulong.MaxValue isn't a valid ID for a channel, hence why were returning a bool if we succeed or not, and channelId as out param.
 		public static bool GetChannelIdFromName(SocketGuild guild, string channelName, out ulong channelId)
 		{
 			channelId = ulong.MaxValue;
 
 			foreach (SocketGuildChannel channel in guild.Channels)
 			{
-				if (channel.Name.Equals(channelName))
+				if (channel != null && channel.Name.Equals(channelName))
 				{
 					channelId = channel.Id;
 					return true;
@@ -37,13 +38,6 @@ namespace TrafficRouter
 			{
 				Console.WriteLine("Text Channel with ID: \"" + channelId + "\"is null in guild: \"" + guild.Name + "\".");
 			}
-		}
-
-		public async static Task SendMessageToGuildChannel(SocketGuild guild, string channelName, string message)
-		{
-			ulong channelId;
-			GetChannelIdFromName(guild, channelName, out channelId);
-			await SendMessageToGuildChannel(guild, channelId, message);
 		}
 	}
 }

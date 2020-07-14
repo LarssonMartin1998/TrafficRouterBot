@@ -48,13 +48,21 @@ namespace TrafficRouter
 			// You will need to add a text file called "token.txt", in a dir: "exe_root\Configs\" and paste your bot token in the file.
 			string[] tokenFileContent = _fileHandler.ReadAllLinesTextFile("token", ".txt");
 			string token = string.Empty;
-			foreach (string tokenFileLine in tokenFileContent)
-			{
-				token += tokenFileLine;
-			}
 
-			await _client.LoginAsync(TokenType.Bot, token);
-			await _client.StartAsync();
+			if (tokenFileContent != null)
+			{
+				foreach (string tokenFileLine in tokenFileContent)
+				{
+					token += tokenFileLine;
+				}
+
+				await _client.LoginAsync(TokenType.Bot, token);
+				await _client.StartAsync();
+			}
+			else
+			{
+				Console.WriteLine("ERROR: You need to create a \"token.txt\" file under .exe-root\\Configs\\ dir.");
+			}
 
 			// Block this task until the program is closed.
 			await Task.Delay(-1);

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C0434D53-2FF9-4B69-BC6D-CD196BF29C46}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ClipFilterBot</RootNamespace>
-    <AssemblyName>ClipFilterBot</AssemblyName>
+    <RootNamespace>TrafficRouter</RootNamespace>
+    <AssemblyName>TrafficRouter</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
